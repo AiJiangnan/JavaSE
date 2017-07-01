@@ -14,7 +14,7 @@ class Static{
 	static{
 		System.out.println("I am a static block!");
 	}
-	
+
 	{
 		System.out.println("I am a normal block!");
 	}
