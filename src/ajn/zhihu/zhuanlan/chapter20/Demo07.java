@@ -11,7 +11,7 @@ public class Demo07 {
 		properties.load(new FileInputStream("F:/example.properties"));
 		String age = (String) properties.get("age");
 		String name = (String) properties.get("name");
-		System.out.println(age);                          // print: 22
-		System.out.println(name);                         // print: AiJiangnan
+		System.out.println(age);                         // print: 22
+		System.out.println(name);                        // print: AiJiangnan
 	}
 }
