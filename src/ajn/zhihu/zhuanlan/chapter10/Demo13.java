@@ -2,12 +2,12 @@ package ajn.zhihu.zhuanlan.chapter10;
 
 public class Demo13 {
 	public static void main(String[] args) {
-		Season s1 = Season.´º;
+		Season s1 = Season.æ˜¥å­£;
 		Season s2 = Season.values()[1];
-		System.out.println(s1+","+s2);		// print: ´º,ÏÄ
+		System.out.println(s1 + "," + s2); // print: æ˜¥å­£,å¤å­£
 	}
 }
 
-enum Season{
-	´º,ÏÄ,Çï,¶¬
+enum Season {
+	æ˜¥å­£, å¤å­£, ç§‹å­£, å†¬å­£
 }

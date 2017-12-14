@@ -5,12 +5,12 @@ public class Demo06 {
 		char ch1 = 65;
 		char ch2 = 'a';
 		char ch3 = 20013;
-		char ch4 = '¹ú';
+		char ch4 = 'å›½';
 		char ch5 = '\n';
-		System.out.println(ch1);	//print: A
-		System.out.println(ch2);	//print: a
-		System.out.println(ch3);	//print: ÖÐ
-		System.out.println(ch4);	//print: ¹ú
-		System.out.println(ch5);	//print: »»ÐÐ£¬¿´²»¼û
+		System.out.println(ch1); // print: A
+		System.out.println(ch2); // print: a
+		System.out.println(ch3); // print: ä¸­
+		System.out.println(ch4); // print: å›½
+		System.out.println(ch5); // print:
 	}
 }
