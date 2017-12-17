@@ -2,5 +2,5 @@
 layout: default
 ---
 {% for post in site.posts | sort: 'order' %}
-<a href="{{ post.url }}" class="list-group-item">第{{ post.order }}章 {{ post.title }}</a>
+<a href="{{ site.baseurl }}{{ post.url }}" class="list-group-item">第{{ post.order }}章 {{ post.title }}</a>
 {% endfor %}
