@@ -2,12 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Hello world</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>JavaSE</title>
 </head>
 
 <body>
-    hello
+    <div class="container">
+        <div class="list-group">
+            <script>
+                var result = "";
+                var article = [
+                    { "name": "从001到OOP" },
+                    { "name": "登上爪哇岛" }
+                ];
+                for (var i = 0, n = article.length; i < n; i++) {
+                    var name = article[i].name;
+                    result += "<a href='" + (i + 1) + "-" + name + "/" + name + ".md' class='list-group-item'>" + "第" + (i + 1) + "章 " + name + "</a>";
+                }
+                document.writeln(result);
+            </script>
+        </div>
+    </div>
 </body>
 
 </html>
