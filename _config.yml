@@ -1,7 +1,0 @@
-# Site settings
-title: JavaSE
-
-# Build settings
-baseurl: /JaveSE
-permalink: none
-markdown: kramdown
