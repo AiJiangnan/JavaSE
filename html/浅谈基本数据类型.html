@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$']]},"HTML-CSS": { scale: 85 } });
+    </script>
+    <link rel="stylesheet" href="../css/content.css">
+    <title>浅谈基本数据类型</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="section">浅谈基本数据类型</h1>
+
+<p><img src="../image/0008.png" alt="img01" /></p>
+
+<p>不管哪种编程语言，都会有数据类型，这给程序很好的提供了数据基础。Java的数据类型如图，我们在这里谈谈Java的基本数据类型。</p>
+
+<h2 id="section-1">一、整数类型</h2>
+
+<ul>
+  <li>byte：8位，$-2^7\sim (2^7-1)$</li>
+  <li>short：16位，$-2^{15}\sim (2^{15}-1)$</li>
+  <li>int：32位，$-2^{31}\sim (2^{31}-1)$</li>
+  <li>long：64位，$-2^{63}\sim (2^{63}-1$</li>
+</ul>
+
+<p>根据补码的规则，我们就可以理解不同位数能存储的数据的范围（不明白看看这篇文章：<a href="https://zhuanlan.zhihu.com/p/27170922">神奇的补码</a>），整型用于表示没有小数部分的数值，它可以是负数。整型的范围与平台无关，因为不同平台的Java虚拟机中数据类型位数是一样的。</p>
+
+<p><strong>Java整型常数的三种表示形式</strong></p>
+
+<ul>
+  <li>十进制整数，如：99，100，0。</li>
+  <li>八进制整数，以0开关，如：073，015。</li>
+  <li>十六进制整数，以0x或0X开关，如：0xf1，0X15。</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo01</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">99</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mo">073</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mh">0xf1</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">);</span><span class="c1">// print: 99</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">);</span><span class="c1">// print: 59</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">);</span><span class="c1">// print: 241</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>Java语言整数默认为int类型，声明long类型的时候赋值超过int的范围时，要在数值后面加‘l’或者‘L’，例如：</p>
+
+<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo02</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">long</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">66666</span><span class="o">;</span>
+        <span class="c1">// long b = 6666666666; 报错</span>
+        <span class="kt">long</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">6666666666L</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">);</span><span class="c1">// print: 66666</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">);</span><span class="c1">// print: 6666666666</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<h2 id="section-2">二、浮点数类型</h2>
+
+<ul>
+  <li>float：32位，$-2^{128}\sim (2^{128}-1)$</li>
+  <li>double：64位，$-2^{1024}\sim (2^{1024}-1)$</li>
+</ul>
+
+<p>用于表示小数的数据类型,浮点数的原理,就是二进制的科学计数法。</p>
+
+<ol>
+  <li>10进制浮点数科学计数法：$219345 = 2.19345\times 10^5$</li>
+  <li>2进制浮点数科学计数法：$10111 = 1.0111\times 2^{100}$</li>
+</ol>
+
+<p>以2.19345×105为例介绍下面概念：</p>
+
+<p>尾数：.19345</p>
+
+<p>指数：5</p>
+
+<p>基数：10</p>
+
+<p>float类型为32位（与int相同），其中1位为符号位，指数为8位，尾数为23位。需要强调的是float的精度是23位（即能精确表达23位的数，超过就被截了）。小数是以尾数长度来表示精确度的，比如pi=3.14，它的精度是2位，pi=3.1415，它的精度就为4位。所以，int的精度比float要大，因为int的精度是31位，但是，int的范围没有float大。</p>
+
+<p>通过以下代码来看浮点数特点：</p>
+
+<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo03</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x7fffffff</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mh">0x7ffffff0</span><span class="o">;</span>
+
+        <span class="kt">float</span> <span class="n">fa</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+        <span class="kt">float</span> <span class="n">fb</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fa</span><span class="o">);</span>            <span class="c1">//print: 2.14748365E9</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fb</span><span class="o">);</span>            <span class="c1">//print: 2.14748365E9</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="o">);</span>        <span class="c1">//print: false</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fa</span><span class="o">==</span><span class="n">fb</span><span class="o">);</span>        <span class="c1">//print: true</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>因为将int型的a和b赋值给float型的fa和fb精度会丢失，如图所示。</p>
+
+<p>float因为精度过低，所以一般很少使用，一般我们会使用double。double类型能表示64位，其中1位符号位，11位指数，52位尾数。double精度比int精确，但是不如long，double的范围要大于long。和之间一样，浮点数的字面量默认是double，double的后缀是D和d，float的后缀是F和f，如下所示，编译注释的部分会出错，原理同int和long。</p>
+
+<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo04</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// float a = 123.123;</span>
+        <span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">123.123f</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">123.123</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">123.123</span><span class="n">D</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>浮点数运算时尽可能的精确，所以下面代码运行结果如此，我们是得不到0.6的答案的，同理，也不要对浮点数进行比较，不准确。</p>
+
+<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo05</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]){</span>
+        <span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">2.6</span><span class="o">;</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>        <span class="c1">//print: 0.6000000000000001</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<h2 id="section-3">三、字符类型</h2>
+
+<ul>
+  <li>char：16位，$0\sim (2^{16}-1)$</li>
+</ul>
+
+<p>字符类型是经常用到的，字符类型是一个16位的无符号整数，是一个字符的unicode编码值。Java的char并不能表示全部的unicode编码，但可以表示常用的部分。unicode编码兼容ASCII码（范围为0~128），同时英文和数字是连续编码的。特殊的字符采用转义字符表示，比如：’\n’表示回车，’\t’表示制表符等等。</p>
+
+<p>字符类型演示：</p>
+
+<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo06</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">char</span> <span class="n">ch1</span> <span class="o">=</span> <span class="mi">65</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch2</span> <span class="o">=</span> <span class="sc">'a'</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch3</span> <span class="o">=</span> <span class="mi">20013</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch4</span> <span class="o">=</span> <span class="sc">'国'</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch5</span> <span class="o">=</span> <span class="sc">'\n'</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch1</span><span class="o">);</span>    <span class="c1">//print: A</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch2</span><span class="o">);</span>    <span class="c1">//print: a</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch3</span><span class="o">);</span>    <span class="c1">//print: 中</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch4</span><span class="o">);</span>    <span class="c1">//print: 国</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch5</span><span class="o">);</span>    <span class="c1">//print: 换行，看不见</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>当我们在控制台显示“?”时，代表在当前操作系统中找不到该数字对应的字库。后面我们学到的String类，其实是字符序列。</p>
+
+<h2 id="section-4">四、布尔类型</h2>
+
+<ul>
+  <li>boolean：1位，$0\sim 1$</li>
+</ul>
+
+<p>布尔值只表示逻辑“真(true)”和“假(false)”，一般用于判断句中，例如：</p>
+
+<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo07</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]){</span>
+        <span class="kt">boolean</span> <span class="n">meeting</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">meeting</span><span class="o">==</span><span class="kc">true</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Don't go home"</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Go home"</span><span class="o">);</span>    <span class="c1">//print: Go home</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>boolean类型的数据只能有true和false两个值，0和非0的整数不能替代true和false。</p>
+
+<h2 id="section-5">五、数据类型的转换</h2>
+
+<p><strong>1. 自动转换</strong></p>
+
+<p>Java中为了防止精度的丢失，当不同类型的数据进行计算的时候，会自动由低精度向高精度转换。比如：</p>
+
+<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo08</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]){</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">);</span>    <span class="c1">//print: 21.0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p><strong>2. 强制转换</strong></p>
+
+<p>我们在需要的时候，也可以自己强制转换数据类型。比如：</p>
+
+<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo09</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]){</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">101</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">);</span>    <span class="c1">//print: 201.0</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">+(</span><span class="kt">int</span><span class="o">)</span><span class="n">b</span><span class="o">);</span>    <span class="c1">//print: 201</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>我们在需要转换的变量前面添加数据类型并用小括号括起来。</p>
+
+    </div>
+</body>
