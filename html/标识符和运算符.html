@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$']]},"HTML-CSS": { scale: 85 } });
+    </script>
+    <link rel="stylesheet" href="../css/content.css">
+    <title>标识符和运算符</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="section">标识符和运算符</h1>
+
+<h2 id="section-1">一、标识符</h2>
+
+<p>标识符就是Java编程中给变量、类、方法取的名字，以便我们使用。既然是名字，自然就有命名的规则了。</p>
+
+<p><strong>Java标识符命名规则：</strong></p>
+
+<ul>
+  <li>标识符必须以 字母、下划线_ 、美元符$开头。</li>
+  <li>标识符其它部分可以是 字母、下划线“_ ”、美元符“$ ”和数字的任意组合。</li>
+  <li>Java 标识符大小写敏感，且长度无限制。</li>
+  <li>不可以是 Java 的关键字。</li>
+</ul>
+
+<p>例如：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>public class Demo01 {
+    public static void main(String[] args) {
+        int a = 3;
+        int _123 = 3;
+        int $12aa = 3;
+//      int 1a = 3;      //不能用数字开头
+//      int a# = 3;      //不能包含#这样的特殊字符
+//      int int = 3;     //不能使用关键字
+    }
+}
+</code></pre></div>
+
+<p><strong>为了规范Java程序代码：</strong></p>
+
+<ul>
+  <li>表示类名的标识符单词首字母大写，例：Man、GoodMan。</li>
+  <li>表示方法名和变量名首个单词小写，后面单词首字母大写，例：eat()、eatFood()。</li>
+  <li>表示常量名一般使用大写字母，例：PI。</li>
+</ul>
+
+<p><strong>Java关键字：</strong></p>
+
+<p><img src="../image/0009.PNG" alt="0002" /></p>
+
+<h2 id="section-2">二、运算符</h2>
+
+<p><strong>1. 算术运算符</strong></p>
+
+<ul>
+  <li>+ ：加法运算符或正值运算符，如 3+4，23+78，+13等；</li>
+  <li>- ：减法运算符或负值运算符，如 11-2，-5等；</li>
+  <li>* ：乘法运算符，如 5*8，2*12等；</li>
+  <li>/ ：除法运算符，没有余数，所以又叫取整，如 123/45等；</li>
+  <li>% ：模运算符，或称为求余运算符，如 17%4，44%3等；</li>
+  <li>++：自增运算符，++在变量前面表示自增1后再参与其他运算，++在变量后面表示变量参与运算后，变量的值再自增1；</li>
+  <li>–：自减运算符，–在变量前面表示自减1后再参与其他运算，–在变量后面表示变量参与运算后，变量的值再自减1。</li>
+</ul>
+
+<p>例如：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>public class Demo02 {
+    public static void main(String[] args) {
+        int a = 6;
+        int b = 2;
+        System.out.println(""
+                + (a+b) + "\n"        //print: 8
+                + (a-b) + "\n"        //print: 4
+                + (a*b) + "\n"        //print: 12
+                + (a/b) + "\n"        //print: 3
+                + (a%b) + "\n"        //print: 0
+                + (++a) + "\n"        //print: 7
+                + (a++) + "\n"        //print: 7
+                + (--b) + "\n"        //print: 1
+                + (b--) + "\n");      //print: 1
+    }
+}
+</code></pre></div>
+
+<p><strong>2. 赋值运算符</strong></p>
+
+<ul>
+  <li>= ：赋值运算符，将计算表达式的值给左边的变量，具有右结合性。例：a = 1+2;；</li>
+  <li>+= ：复合运算符，a+=b与等于a=a+b，不单用于+=，还可以是-=、*=、/=等。</li>
+</ul>
+
+<p>例如：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>public class Demo03 {
+    public static void main(String[] args) {
+        int a = 6;
+        int b = 2;
+        int c = a + b;
+        System.out.println((c+=1) +"\n"        //print: 9
+                + (c-=1) +"\n"                 //print: 8
+                + (c*=2) +"\n"                 //print: 16
+                + (c/=2) +"\n");               //print: 8
+    }
+}
+</code></pre></div>
+
+<p>在Java中，赋值“=”和等于“==”是两个不同的的运算符。</p>
+
+<p><strong>3. 关系运算符</strong></p>
+
+<ul>
+  <li>&gt; ：大于；</li>
+  <li>&lt; ：小于；</li>
+  <li>&gt;= ：大于或等于；</li>
+  <li>&lt;= ：小于或等于；</li>
+  <li>== ：等于；</li>
+  <li>!= ：不等于。</li>
+</ul>
+
+<p>关系运算符用来比较运算，返回的结果是布尔类型数据，只有<code class="highlighter-rouge">true</code>和<code class="highlighter-rouge">false</code>。</p>
+
+<p>例如：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>public class Demo04 {
+    public static void main(String[] args) {
+        System.out.println(""
+                + (3&gt;2) +"\n"        //print: true
+                + (3&lt;2) +"\n"        //print: false
+                + (3&gt;=3) +"\n"       //print: true
+                + (3&lt;=3) +"\n"       //print: true
+                + (4==3) +"\n"       //print: false
+                + (3!=4) +"\n");     //print: true
+    }
+}
+</code></pre></div>
+
+<p><strong>4. 逻辑运算符</strong></p>
+
+<ul>
+  <li>&amp;&amp; ：“与”，两边变量都为true时返回true；</li>
+  <li>|| ：“或”，两边变量都为false时返回false；</li>
+  <li>! ：“非”，变量为true时返回false，变量为false时返回true。</li>
+</ul>
+
+<p>逻辑运算符只能操作布尔类型的数据，当&amp;&amp;左边的为false时，直接返回false，将不会执行右边的表达式，同样，当||左边为true时，直接返回false。</p>
+
+<p>逻辑运算真值表：</p>
+
+<p><img src="../image/0010.PNG" alt="0003" /></p>
+
+<p>例如：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>public class Demo05 {
+    public static void main(String[] args) {
+        System.out.println(""
+            + ((3&gt;2)&amp;&amp;(3&lt;2)) +"\n"        //print: false
+            + ((3&lt;2)||(3&gt;2)) +"\n"        //print: true
+            + !(3&gt;=3) +"\n");             //print: false
+    }
+}
+</code></pre></div>
+
+<p><strong>5. 条件运算符</strong></p>
+
+<ul>
+  <li>x ? y : z ：其中x为布尔类型表达式，当x为true时，整个运算的结果为y表达式的值，否则为z表达式的值。</li>
+</ul>
+
+<p>例如：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>public class Demo06 {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 4;
+        int max = a &gt; b ? a : b;
+        System.out.println(max);    //print: 5
+    }
+}
+</code></pre></div>
+
+<p>条件运算符中唯一的三目运算符，在使用三目运算符时，会自动转换数据类型。</p>
+
+<p><strong>6. 位运算符</strong></p>
+
+<ul>
+  <li>&amp; ：按位与；</li>
+  <li>| ：按拉或；</li>
+  <li>~ ：按拉取反；</li>
+  <li>^ ：按位异或；</li>
+  <li>« ：左移，右边空位补0；</li>
+  <li>&gt;&gt; ：右移，左边空位补最高位；</li>
+  <li>&gt;&gt;&gt; ：无符号右移，左边空位补0。</li>
+</ul>
+
+<p>例如：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>public class Demo07 {
+    public static void main(String[] args) {
+        int a = 0xff;
+        int b = 0;
+        int c = a&amp;b;
+        System.out.println(""
+            + (a&amp;b) +"\n"        //print: 0
+            + (a|b) +"\n"        //print: 255
+            + (~a) +"\n"         //print: -256
+            + (a^b) +"\n"        //print: 255
+            + (a&gt;&gt;2) +"\n"       //print: 63
+            + (a&lt;&lt;2) +"\n"       //print: 1020
+            + (a&gt;&gt;&gt;2) +"\n");    //print: 63
+        System.out.println(""
+            + Integer.toBinaryString(a&amp;b) +"\n"     //print: 0
+            + Integer.toBinaryString(a|b) +"\n"     //print: 11111111
+            + Integer.toBinaryString(~a) +"\n"      //print: 11111111111111111111111100000000
+            + Integer.toBinaryString(a^b) +"\n"     //print: 11111111
+            + Integer.toBinaryString(a&gt;&gt;2) +"\n"    //print: 111111
+            + Integer.toBinaryString(a&lt;&lt;2) +"\n"    //print: 1111111100
+            + Integer.toBinaryString(a&gt;&gt;&gt;2) +"\n"); //print: 111111
+    }
+}
+</code></pre></div>
+
+<p><strong>按位与（&amp;）</strong></p>
+
+<p>形式：a&amp;b</p>
+
+<p>功能：将a与b按照对应的二进制位一一进行“与”运算。</p>
+
+<p>示例：65&amp;66的计算过程为：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>65      0100 0001
+66      0100 0010
+&amp;       ---------
+        0100 0000
+</code></pre></div>
+
+<p>主要用途：</p>
+
+<ul>
+  <li>清零。要将一个运算量的每个位清零（屏蔽），例如a的值为11011101，b的值为11110000，a&amp;b的结果就是11010000，相当于把a的低4位屏蔽，高4位不变。</li>
+  <li>取一个数中的某些位。若要把某数的某些二进制位取出来，可以把其它位清零，用法同上。</li>
+</ul>
+
+<p><strong>按位或（|）</strong></p>
+
+<p>形式：a|b</p>
+
+<p>功能：将a和b按照对应的二进制位一一进行“或”运算。</p>
+
+<p>示例：65|66的计算过程为：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>65      0100 0001
+66      0100 0010
+|       ---------
+        0100 0011
+</code></pre></div>
+
+<p>主要用途：按位或常用来将一个数的某些位变为1。</p>
+
+<p><strong>按位取反（~）</strong></p>
+
+<p>形式：~a</p>
+
+<p>功能：将a的各个二进制位取反</p>
+
+<p>示例：~13的计算过程为~13 = ~(00001101) = 11110010（注：本例只取出了13的最低的一个字节，即低8位。下面都是如此。）</p>
+
+<p><strong>按位异或（^）</strong></p>
+
+<p>形式：a^b</p>
+
+<p>功能：将a和b按照对应的二进制拉一一进行“异或”运算，只有对应的二进制位不同时，该位的结果才为1，否则为0。</p>
+
+<p>示例：65^66的计算过程为：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>65      0100 0001
+66      0100 0010
+^       ---------
+        0000 0011
+</code></pre></div>
+
+<p>主要用途：使指定位翻转。即由1变为0，由0变为1。如：要使11001101的低4位翻转，将其与00001111按位异或即可。</p>
+
+<p><strong>左移（«）</strong></p>
+
+<p>形式：a«n</p>
+
+<p>功能：将a的各二进制位向左移动n位，右端补0，左端移出的部分直接丢弃。</p>
+
+<p>示例：13«4的计算过程为13«4 = (00001101)«4 = 11010000。</p>
+
+<p>特殊用法：左移可以扩大原数的倍数，左移1位，相当于乘以2。</p>
+
+<p><strong>右移（»）</strong></p>
+
+<p>形式：a»n</p>
+
+<p>功能：将a的各二进制位向右移动n位，右端移出的部分直接丢弃。当移位的操作数为无符号或正整数时左端补0，负整数时左端补1。</p>
+
+<p>示例：13»2的计算过程为13»2 = (00001101)»2 = 00000011。</p>
+
+<p>特殊用法：左移可以缩小原数的倍数，右移1位，相当于除以2。</p>
+
+<h2 id="section-3">三、运算符的优先级</h2>
+
+<p><img src="../image/0011.PNG" alt="0004" /></p>
+
+<p>不用刻意去记住运算符的优先级，可以用小括号来组织代码，这样可读性更高。</p>
+
+    </div>
+</body>
