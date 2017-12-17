@@ -93,7 +93,17 @@ code {
 
 
 /*表格  */
+table {
+    width: inherit;
+}
+
+table, th, td {
+    padding: 5px;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
 
 th {
     text-align: center;
+    background-color: #eee;
 }

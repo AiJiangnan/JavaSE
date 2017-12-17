@@ -17,7 +17,7 @@
 
 <h2 id="java">一、Java简史</h2>
 
-<p><img src="0001.jpg" alt="img01" /></p>
+<p><img src="../image/0004.jpg" alt="img01" /></p>
 
 <p>360百科：<a href="https://baike.so.com/doc/2886868.html?sid=3046592">https://baike.so.com/doc/2886868.html?sid=3046592</a></p>
 
@@ -43,7 +43,7 @@ Java EE(Java Platform,Enterprise Edition)。这个版本以前称为J2EE。企�
 <p><strong>Java ME</strong>
 Java ME(Java Platform,Micro Edition)。这个版本以前称为J2ME，也叫K-JAVA。Java ME为在移动设备和嵌入式设备（比如手机、PDA、电视机顶盒和打印机）上运行的应用程序提供一个健壮且灵活的环境。Java ME包括灵活的用户界面、健壮的安全模型、许多内置的网络协议以及对可以动态下载的连网和离线应用程序的丰富支持。基于Java ME规范的应用程序只需编写一次，就可以用于许多设备，而且可以利用每个设备的本机功能。</p>
 
-<p><img src="0002.png" alt="img02" /></p>
+<p><img src="../image/0005.png" alt="img02" /></p>
 
 <h2 id="java-3">四、Java开发环境与工具</h2>
 
@@ -148,10 +148,10 @@ Java ME(Java Platform,Micro Edition)。这个版本以前称为J2ME，也叫K-JA
   <li>Linux下配置JDK环境变量，Linux下在”<code class="highlighter-rouge">/etc/.bash_profile</code>“文件下的环境变量设置，在后追加代码：</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><pre class="codehilite"><code><span class="nv">JAVA_HOME</span><span class="o">=</span>/opt/jdk1.7.0
-<span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="nv">$JAVA_HOME</span>/lib/toolsjar:<span class="nv">$JAVA_HOME</span>/lib/dt.jar
-<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$JAVA_HOME</span>/bin:.
-<span class="nb">export </span>JAVA_HOME CLASSPATH PATH
+<div class="highlighter-rouge"><pre class="codehilite"><code>JAVA_HOME=/opt/jdk1.7.0
+CLASSPATH=.:$JAVA_HOME/lib/toolsjar:$JAVA_HOME/lib/dt.jar
+PATH=$PATH:$JAVA_HOME/bin:.
+export JAVA_HOME CLASSPATH PATH
 </code></pre></div>
 
 <ul>
@@ -178,18 +178,18 @@ Java ME(Java Platform,Micro Edition)。这个版本以前称为J2ME，也叫K-JA
 
 <p>Eclipse的设计思想是：一切皆插件。Eclipse核心很小，其它所有功能都以插件的形式附加于Eclipse核心之上。Eclipse基本内核包括：图形API(SWT/Jface)，Java开发环境插件(JDT)，插件开发环境(PDE)等。</p>
 
-<p><img src="0003.png" alt="img03" /></p>
+<p><img src="../image/0006.png" alt="img03" /></p>
 
 <h3 id="hello-world">4. Hello world</h3>
 
 <p>用记事本或者Vim等文本编辑软件新建文件Hello.java写下下面代码：</p>
 
-<div class="language-java highlighter-rouge"><pre class="codehilite"><code><span class="cm">/***Hello world***/</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span><span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello world!"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<div class="highlighter-rouge"><pre class="codehilite"><code>/***Hello world***/
+public class Hello{
+    public static void main(String[] args){
+        System.out.println("Hello world!");
+    }
+}
 </code></pre></div>
 
 <p>然后在文件所在的地方打开<strong>命令提示符</strong>(Windows)或者<strong>终端命令窗口</strong>(Linux)，输入<code class="highlighter-rouge">javac Hello.java</code>进行编译，编译完后会在此目录下生成一个Hello.class文件。</p>
