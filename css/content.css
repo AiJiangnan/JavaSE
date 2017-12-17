@@ -78,16 +78,19 @@ img {
 
 /*代码  */
 
+code {
+    padding: 3px;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
 pre {
     border: 1px solid #ddd;
     background-color: #f8f8f8;
     border-radius: 3px;
     padding: 10px;
-}
-
-code {
-    font-family: Consolas, "Liberation Mono", Courier, monospace;
-    font-size: 0.9em;
 }
 
 
