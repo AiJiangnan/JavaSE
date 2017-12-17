@@ -1,0 +1,6 @@
+---
+layout: default
+---
+{% for post in site.posts %}
+<a href="{{ site.baseurl }}{{ post.url }}" class="list-group-item">第{{ post.order }}章 {{ post.title }}</a>
+{% endfor %}
