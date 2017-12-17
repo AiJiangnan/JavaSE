@@ -1,0 +1,6 @@
+# Site settings
+title: JavaSE
+
+# Build settings
+permalink: none
+markdown: kramdown
